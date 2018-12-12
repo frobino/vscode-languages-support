@@ -1,4 +1,5 @@
-AM_CFLAGS=`pkg-config --cflags glib-2.0` -O3 -Wall
+AM_CFLAGS=-g -O3 -Wall `pkg-config --cflags glib-2.0`
+AM_LDFLAGS=`pkg-config --libs glib-2.0`
 
 lib_LTLIBRARIES=libdict.la
 libdict_la_SOURCES=dict.c keyval.c
