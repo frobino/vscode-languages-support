@@ -1,0 +1,45 @@
+# Test for autotools
+
+Classic flow for autotools:
+
+1] Create source code
+
+2] Create Makefile.am
+   e.g.:
+   cat > Makefile.am <<\
+   "--------------"
+   bin_PROGRAMS=hello
+   hello_SOURCES=hello.c
+   --------------
+
+3] run the autoscan tool to create config.ac,
+   and then modif the config.ac file
+   e.g.:
+   autoscan
+   sed -e 's/FULL-PACKAGE-NAME/hello/' \
+   -e 's/VERSION/1/'
+   \
+   -e 's|BUG-REPORT-ADDRESS|/dev/null|' \
+   -e '10i\
+   AM_INIT_AUTOMAKE' \
+   < configure.scan > configure.ac
+
+
+   NOTE:
+   This step was already done in the committed code,
+   i.e. we have committed config.ac
+
+4] Add the NEWS README AUTHORS ChangeLog files
+   e.g.:
+   touch NEWS README AUTHORS ChangeLog
+
+5] generate makefile, build, install
+   e.g.:
+   autoreconf -iv
+   ./configure
+   make distcheck
+
+Example taken from:
+21th century C.
+oop with structs in C:
+https://modelingwithdata.org/pdfs/113-composition.pdf
