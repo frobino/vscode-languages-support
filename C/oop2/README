@@ -1,0 +1,4 @@
+C based struct oop approach proposed at:
+https://modelingwithdata.org/pdfs/113-composition.pdf
+
+This method works without gcc extensions (e.g. -fms-extensions)
