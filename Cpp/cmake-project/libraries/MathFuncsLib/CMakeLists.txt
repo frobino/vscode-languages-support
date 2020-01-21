@@ -6,7 +6,8 @@ project(MathFuncsLib)
 
 # Add a library to this build, i.e. this project will create a library (see "add executable" for main function).
 # The name of the library is MathFuncsLib and it consists of only the MathFuncsLib.cpp file.
-add_library(MathFuncsLib src/MathFuncsLib.cpp)
+# The library can be STATIC or SHARED. Default STATIC.
+add_library(MathFuncsLib STATIC src/MathFuncsLib.cpp)
 # Specify .h files directory of the library.
 target_include_directories(MathFuncsLib PRIVATE include/)
 
