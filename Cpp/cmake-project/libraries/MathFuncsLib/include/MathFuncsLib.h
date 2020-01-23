@@ -1,12 +1,12 @@
 namespace MathFuncs
 {
-    class MyMathFuncs
+    class MyMathClass
     {
     private:
         /* data */
     public:
-        MyMathFuncs(/* args */);
-        ~MyMathFuncs();
+        MyMathClass(/* args */);
+        ~MyMathClass();
 
         // Returns a + b
         static double Add(double a, double b);

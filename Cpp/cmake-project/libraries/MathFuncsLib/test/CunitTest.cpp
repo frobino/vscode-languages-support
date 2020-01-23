@@ -82,7 +82,7 @@ void testFPRINTF(void)
  */
 void testAddition(void)
 {
-    CU_ASSERT(7 == MathFuncs::MyMathFuncs::Add(3,4));
+    CU_ASSERT(7 == MathFuncs::MyMathClass::Add(3,4));
 }
 
 /* Simple test of fread().

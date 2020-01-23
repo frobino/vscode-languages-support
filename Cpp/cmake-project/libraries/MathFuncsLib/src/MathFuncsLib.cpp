@@ -2,30 +2,30 @@
 
 namespace MathFuncs
 {
-    MyMathFuncs::MyMathFuncs(/* args */)
+    MyMathClass::MyMathClass(/* args */)
     {
     }
 
-    MyMathFuncs::~MyMathFuncs()
+    MyMathClass::~MyMathClass()
     {
     }
 
-    double MyMathFuncs::Add(double a, double b)
+    double MyMathClass::Add(double a, double b)
     {
         return a + b;
     }
 
-    double MyMathFuncs::Subtract(double a, double b)
+    double MyMathClass::Subtract(double a, double b)
     {
         return a - b;
     }
 
-    double MyMathFuncs::Multiply(double a, double b)
+    double MyMathClass::Multiply(double a, double b)
     {
         return a * b;
     }
 
-    double MyMathFuncs::Divide(double a, double b)
+    double MyMathClass::Divide(double a, double b)
     {
         return a / b;
     }

@@ -5,6 +5,17 @@ From a folder containing CMakeLists.txt (e.g. main folder, library folder or mod
   mkdir build && cd build && cmake ..
   make VERBOSE=1
 
+or:
+
+  mkdir Release && cd Release
+  cmake -DCMAKE_BUILD_TYPE=Release ..
+  make VERBOSE=1
+
+  mkdir Debug
+  cd Debug
+  cmake -DCMAKE_BUILD_TYPE=Debug ..
+  make VERBOSE=1
+
 # Naming conventions
 
 Namespace is <project>::<module>::<class>

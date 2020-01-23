@@ -10,13 +10,13 @@ int main(int argc, char const *argv[])
     int b = 99;
 
     cout << "a + b = " <<
-        MathFuncs::MyMathFuncs::Add(a,b) << endl;    
+        MathFuncs::MyMathClass::Add(a,b) << endl;    
     cout << "a - b = " <<
-        MathFuncs::MyMathFuncs::Subtract(a, b) << endl;
+        MathFuncs::MyMathClass::Subtract(a, b) << endl;
     cout << "a * b = " <<
-        MathFuncs::MyMathFuncs::Multiply(a, b) << endl;
+        MathFuncs::MyMathClass::Multiply(a, b) << endl;
     cout << "a / b = " <<
-        MathFuncs::MyMathFuncs::Divide(a, b) << endl;
+        MathFuncs::MyMathClass::Divide(a, b) << endl;
 
     return 0;
 }
