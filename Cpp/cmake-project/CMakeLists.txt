@@ -11,11 +11,16 @@ project(Project VERSION 1.0
 
 # Create a few variables for the folder names, so they are easier to rename in the future
 set(LIBRARIES_DIR libraries)
+set(MODULE_DIR module1)
+file(GLOB module_SRC
+    "module1/src/*.cpp"
+)
 
 # Add all the source files needed to build the executable
 add_executable(
   Project
   main.cpp
+  ${module_SRC}
 )
 
 # Include the directory where MathFuncsLib project is.
@@ -24,4 +29,6 @@ add_subdirectory(${LIBRARIES_DIR}/MathFuncsLib)
 
 # Link the executable and the library together
 target_link_libraries(Project MathFuncsLib)
+# Specify .h files directories.
 target_include_directories(Project PRIVATE ${LIBRARIES_DIR}/MathFuncsLib/include/)
+target_include_directories(Project PRIVATE ${MODULE_DIR}/include/)

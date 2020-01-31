@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include "MathFuncsLib.h"
+#include "Module1.h"
 
 using namespace std;
 using namespace mathfuncs;
@@ -18,6 +19,10 @@ int main(int argc, char const *argv[])
         MyMathClass::multiply(a, b) << endl;
     cout << "a / b = " <<
         MyMathClass::divide(a, b) << endl;
+
+    Module1 m1 = Module1("thisIsMyModuleName");
+    cout << "Module name: " <<
+        m1.getModuleName() << endl;
 
     return 0;
 }
