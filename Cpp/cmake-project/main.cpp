@@ -3,6 +3,7 @@
 #include "MathFuncsLib.h"
 
 using namespace std;
+using namespace mathfuncs;
 
 int main(int argc, char const *argv[])
 {
@@ -10,13 +11,13 @@ int main(int argc, char const *argv[])
     int b = 99;
 
     cout << "a + b = " <<
-        MathFuncs::MyMathClass::Add(a,b) << endl;    
+        MyMathClass::add(a,b) << endl;    
     cout << "a - b = " <<
-        MathFuncs::MyMathClass::Subtract(a, b) << endl;
+        MyMathClass::subtract(a, b) << endl;
     cout << "a * b = " <<
-        MathFuncs::MyMathClass::Multiply(a, b) << endl;
+        MyMathClass::multiply(a, b) << endl;
     cout << "a / b = " <<
-        MathFuncs::MyMathClass::Divide(a, b) << endl;
+        MyMathClass::divide(a, b) << endl;
 
     return 0;
 }

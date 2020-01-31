@@ -1,6 +1,6 @@
 #include "MathFuncsLib.h"
 
-namespace MathFuncs
+namespace mathfuncs
 {
     MyMathClass::MyMathClass(/* args */)
     {
@@ -10,22 +10,22 @@ namespace MathFuncs
     {
     }
 
-    double MyMathClass::Add(double a, double b)
+    double MyMathClass::add(double a, double b)
     {
         return a + b;
     }
 
-    double MyMathClass::Subtract(double a, double b)
+    double MyMathClass::subtract(double a, double b)
     {
         return a - b;
     }
 
-    double MyMathClass::Multiply(double a, double b)
+    double MyMathClass::multiply(double a, double b)
     {
         return a * b;
     }
 
-    double MyMathClass::Divide(double a, double b)
+    double MyMathClass::divide(double a, double b)
     {
         return a / b;
     }

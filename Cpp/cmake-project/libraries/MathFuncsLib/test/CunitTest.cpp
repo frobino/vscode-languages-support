@@ -31,6 +31,8 @@
 
 #include "MathFuncsLib.h"
 
+using namespace mathfuncs;
+
 /* Pointer to the file used by the tests. */
 static FILE* temp_file = NULL;
 
@@ -82,7 +84,7 @@ void testFPRINTF(void)
  */
 void testAddition(void)
 {
-    CU_ASSERT(7 == MathFuncs::MyMathClass::Add(3,4));
+    CU_ASSERT(7 == MyMathClass::add(3,4));
 }
 
 /* Simple test of fread().
@@ -123,7 +125,7 @@ int main()
    /* NOTE - ORDER IS IMPORTANT - MUST TEST fread() AFTER fprintf() */
    if ((NULL == CU_add_test(pSuite, "test of fprintf()", testFPRINTF)) ||
        (NULL == CU_add_test(pSuite, "test of fread()", testFREAD)) ||
-       (NULL == CU_add_test(pSuite, "test of MathFuncslib Add()", testAddition)) )
+       (NULL == CU_add_test(pSuite, "test of MathFuncslib add()", testAddition)) )
    {
       CU_cleanup_registry();
       return CU_get_error();

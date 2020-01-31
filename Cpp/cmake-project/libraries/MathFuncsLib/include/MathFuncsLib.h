@@ -1,4 +1,4 @@
-namespace MathFuncs
+namespace mathfuncs
 {
     class MyMathClass
     {
@@ -9,16 +9,16 @@ namespace MathFuncs
         ~MyMathClass();
 
         // Returns a + b
-        static double Add(double a, double b);
+        static double add(double a, double b);
 
         // Returns a - b
-        static double Subtract(double a, double b);
+        static double subtract(double a, double b);
 
         // Returns a * b
-        static double Multiply(double a, double b);
+        static double multiply(double a, double b);
 
         // Returns a / b
-        static double Divide(double a, double b);
+        static double divide(double a, double b);
     };
     
 } // namespace MathFuncs

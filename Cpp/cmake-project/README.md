@@ -18,8 +18,21 @@ or:
 
 # Naming conventions
 
-Namespace is <project>::<module>::<class>
-Libraries are named <something>Lib, and the namespace is the <something> (see boost library)
+One possible namespace convention is:
+  <project>::<module>::<class>
+  <project>::<library>::<class>
+
+Libraries:
+- placed under library/<SomeThing>Lib folder
+- named <SomeThing>Lib.[cpp|h|hpp]
+- the namespace is the <something>
+
+Modules
+- placed under modules/<SomeThing> folder
+- the namespace is the <something>
+
+More complex conventions can be used if the project grows.
+Other libs such as std, boost and soundtouch projects use similar approaches.
 
 # Project features:
 
@@ -42,12 +55,16 @@ Memory usage test (TODO):
 - valgrind-memcheck:
   $ valgrind --tool=memcheck --leak-check=yes --show-reachable=yes --num-callers=20 --track-fds=yes ./test
 
-
-# Notes
+# Notes and TODO
 
 As it is currently configured in CMakeLists.txt:
 - make test is available only if we build from the libraries/<libName> folder;
 - make test can be executed only after make (testName or all) has been executed;
 - make gcov can be executed only after make test has been executed, i.e.:
   * the tests have been executed and gcno/gcda has been generated;
-  * make gcov can run only from the libraries/<libName> folder;
+  * make gcov_MathFuncsLib can run only from the libraries/<libName> folder;
+
+TODO - Yeoman generator:
+- this project can be ported to a yeoman generator, to improve usage (i.e. no "git clone")
+
+TODO - bin/debug folders and rules for binary generation
