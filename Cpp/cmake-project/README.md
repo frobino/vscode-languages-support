@@ -44,8 +44,13 @@ Unit and functional tests + coverage (implemented in the gcov_* targets):
 Performance test (TODO):
 
 - gprof (not good fo multithreaded)
+  HOW TO USE gprof:
+  . compile executable using -pg flag
+  . execute the binary, this will create a file named "gmon.out"
+  $ gprof <binaryName> gmon.out
 - gperftools (require code instrumentation)
 - valgrind-callgrind + kcachegrind:
+  HOW TO USE callgrind:
   $ valgrind --tool=callgrind path/to/your/compiled/program program_arguments
   $ kcachegrind calgrind.out.12345
   Look into Self, showing the time spent in each function itself discounting the callees

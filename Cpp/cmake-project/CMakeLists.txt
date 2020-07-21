@@ -4,31 +4,43 @@
 # Minimum version of CMake required to build this project
 cmake_minimum_required(VERSION 3.0)
 
-# Name of the project (which will be the 1st default target)
-project(Project VERSION 1.0
-  DESCRIPTION "Very nice project"
-  LANGUAGES CXX)
-
-# Create a few variables for the folder names, so they are easier to rename in the future
-set(LIBRARIES_DIR libraries)
-set(MODULE_DIR module1)
-file(GLOB module_SRC
+# Create a few variables, used to make this file modular
+set(PROJECT_NAME Project)
+file(GLOB PROJECT_SRC_FILE
+    "main.cpp"
+)
+set(LIB1_DIR libraries/MathFuncsLib)
+set(LIB1_H_DIR ${LIB1_DIR}/include/)
+set(MODULE1_H_DIR module1/include/)
+file(GLOB MODULE1_SRC_FILE
     "module1/src/*.cpp"
 )
 
-# Add all the source files needed to build the executable
+# Name of the project (which will be the 1st default target)
+project(${PROJECT_NAME} VERSION 1.0
+  DESCRIPTION "Very nice project"
+  LANGUAGES CXX)
+
+# Add all the source files needed to build.
+# Use add_executable command to specify the creation of an exe file.
 add_executable(
-  Project
-  main.cpp
-  ${module_SRC}
+  ${PROJECT_NAME}
+  ${PROJECT_SRC_FILE}
+  ${MODULE1_SRC_FILE}
 )
 
 # Include the directory where MathFuncsLib project is.
 # Otherwise, we can't use the library.
-add_subdirectory(${LIBRARIES_DIR}/MathFuncsLib)
+add_subdirectory(${LIB1_DIR})
 
 # Link the executable and the library together
-target_link_libraries(Project MathFuncsLib)
-# Specify .h files directories.
-target_include_directories(Project PRIVATE ${LIBRARIES_DIR}/MathFuncsLib/include/)
-target_include_directories(Project PRIVATE ${MODULE_DIR}/include/)
+target_link_libraries(${PROJECT_NAME} MathFuncsLib)
+
+# Specify directories of header files needed to build.
+target_include_directories(${PROJECT_NAME} PRIVATE ${LIB1_H_DIR})
+target_include_directories(${PROJECT_NAME} PRIVATE ${MODULE1_H_DIR})
+
+# Testing: this creates a new rule (named test) in the Makefile.
+# The test rule will execute (not build) all targets specified using the add_test() command,
+# including the ones from subprojects/subdirectories/modules
+enable_testing()
