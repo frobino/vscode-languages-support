@@ -11,7 +11,8 @@ file(GLOB PROJECT_SRC_FILE
 )
 set(LIB1_DIR libraries/MathFuncsLib)
 set(LIB1_H_DIR ${LIB1_DIR}/include/)
-set(MODULE1_H_DIR module1/include/)
+set(MODULE1_DIR module1)
+set(MODULE1_H_DIR ${MODULE1_DIR}/include/)
 file(GLOB MODULE1_SRC_FILE
     "module1/src/*.cpp"
 )
@@ -32,6 +33,7 @@ add_executable(
 # Include the directory where MathFuncsLib project is.
 # Otherwise, we can't use the library.
 add_subdirectory(${LIB1_DIR})
+add_subdirectory(${MODULE1_DIR})
 
 # Link the executable and the library together
 target_link_libraries(${PROJECT_NAME} MathFuncsLib)
