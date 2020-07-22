@@ -82,7 +82,7 @@ add_custom_target(gcov_${MODULE1_NAME}
     )
 
 add_custom_command(TARGET gcov_${MODULE1_NAME}
-    COMMAND gcov -b ${CMAKE_SOURCE_DIR}/src/*.cpp -o ${CMAKE_CURRENT_BINARY_DIR}/CMakeFiles/${TEST1_NAME}_coverage.dir/src/
+    COMMAND gcov -b ${CMAKE_SOURCE_DIR}/src/*.cpp
     COMMAND lcov -c --directory ${CMAKE_CURRENT_BINARY_DIR}/CMakeFiles/${TEST1_NAME}_coverage.dir --output-file main_coverage.info
     COMMAND genhtml main_coverage.info --output-directory out
     COMMAND xdg-open out/index.html

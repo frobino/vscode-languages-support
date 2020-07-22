@@ -46,3 +46,23 @@ target_include_directories(${PROJECT_NAME} PRIVATE ${MODULE1_H_DIR})
 # The test rule will execute (not build) all targets specified using the add_test() command,
 # including the ones from subprojects/subdirectories/modules
 enable_testing()
+
+file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/coverage)
+
+# create a dependency on the custom command.
+# In this specific case, running the CUSTOM_COMMAND
+# will trigger the build and execution of tests
+add_custom_target(gcov_${PROJECT_NAME}
+    # COMMAND mkdir -p coverage
+    COMMAND ${CMAKE_MAKE_PROGRAM}
+    COMMAND ${CMAKE_MAKE_PROGRAM} test
+    WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
+    )
+
+add_custom_command(TARGET gcov_${PROJECT_NAME}
+    COMMAND gcov -b ${CMAKE_SOURCE_DIR}/src/*.cpp
+    COMMAND lcov -c --directory ${CMAKE_BINARY_DIR} --output-file main_coverage.info
+    COMMAND genhtml main_coverage.info --output-directory out
+    COMMAND xdg-open out/index.html
+    WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/coverage
+)
