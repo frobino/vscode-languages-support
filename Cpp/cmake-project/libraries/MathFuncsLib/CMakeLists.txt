@@ -99,8 +99,8 @@ add_custom_target(gcov_${LIB_NAME}
     )
 
 add_custom_command(TARGET gcov_${LIB_NAME}
-    COMMAND gcov -b ${CMAKE_SOURCE_DIR}/src/*.cpp -o ${CMAKE_BINARY_DIR}/CMakeFiles/${TEST1_NAME}_coverage.dir/src/
-    COMMAND lcov -c --directory ${CMAKE_BINARY_DIR} --output-file main_coverage.info
+    COMMAND gcov -b ${CMAKE_SOURCE_DIR}/src/*.cpp -o ${CMAKE_CURRENT_BINARY_DIR}/CMakeFiles/${TEST1_NAME}_coverage.dir/src/
+    COMMAND lcov -c --directory ${CMAKE_CURRENT_BINARY_DIR} --output-file main_coverage.info
     COMMAND genhtml main_coverage.info --output-directory out
     COMMAND xdg-open out/index.html
     WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/coverage
@@ -111,7 +111,7 @@ add_custom_command(TARGET gcov_${LIB_NAME}
 ###########################################
 add_custom_target(scrub_${LIB_NAME}
     COMMAND ${CMAKE_MAKE_PROGRAM} clean
-    COMMAND rm -f ${CMAKE_BINARY_DIR}/CMakeFiles/${TEST1_NAME}_coverage.dir/src/*.gcno
-    COMMAND rm -f ${CMAKE_BINARY_DIR}/CMakeFiles/${TEST1_NAME}_coverage.dir/src/*.gcda
+    COMMAND rm -f ${CMAKE_CURRENT_BINARY_DIR}/CMakeFiles/${TEST1_NAME}_coverage.dir/src/*.gcno
+    COMMAND rm -f ${CMAKE_CURRENT_BINARY_DIR}/CMakeFiles/${TEST1_NAME}_coverage.dir/src/*.gcda
     WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
 )
